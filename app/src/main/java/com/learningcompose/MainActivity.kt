@@ -7,7 +7,10 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -23,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.learningcompose.ui.theme.LearningComposeTheme
+import com.learningcompose.ui.theme.Shapes
 
 class MainActivity : ComponentActivity() {
 
@@ -119,6 +123,17 @@ class MainActivity : ComponentActivity() {
                         )
                     ) {
                         Log.d("Gradient Button", "Clicked !")
+                    }
+
+                    LazyColumn(
+                        verticalArrangement = Arrangement.spacedBy(10.dp),
+                        modifier = Modifier
+                            .border(10.dp, MaterialTheme.colors.onBackground, Shapes.medium),
+                        contentPadding = PaddingValues(10.dp)
+                    ) {
+                        items(PersonRepository.getAllDatas()) {
+                            PersonItem(it)
+                        }
                     }
                 }
             }
