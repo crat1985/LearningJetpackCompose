@@ -2,6 +2,7 @@ package com.learningcompose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -26,7 +27,8 @@ fun GradientButton(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
             backgroundColor = Color.Transparent
-        )
+        ),
+        contentPadding = PaddingValues()
     ) {
         Box(
             modifier = Modifier
@@ -47,7 +49,6 @@ fun GradientButtonPreview() {
         textColor = MaterialTheme.colors.onBackground,
         gradient = Brush.horizontalGradient(
             colors = listOf(Color.Blue, Color.Red)
-        ),
-        onClick = {}
-    )
+        )
+    ) {  }
 }

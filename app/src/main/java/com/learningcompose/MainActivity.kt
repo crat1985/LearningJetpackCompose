@@ -2,6 +2,7 @@ package com.learningcompose
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -24,7 +26,7 @@ import com.learningcompose.ui.theme.LearningComposeTheme
 
 class MainActivity : ComponentActivity() {
 
-    private var i = 0
+    //private var i = 0
 
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,6 +111,15 @@ class MainActivity : ComponentActivity() {
 
                     PasswordTextField("Mot de passe")
 
+                    GradientButton(
+                        text = "Hello World",
+                        textColor = MaterialTheme.colors.onBackground,
+                        gradient = Brush.horizontalGradient(
+                            colors = listOf(Color.Blue, Color.Red)
+                        )
+                    ) {
+                        Log.d("Gradient Button", "Clicked !")
+                    }
                 }
             }
         }
